@@ -1,0 +1,28 @@
+# Scenario: Burst — Periodic traffic spikes
+name: burst
+description: "Periodic burst events simulating flash crowds or IoT sensor storms"
+workload:
+  pattern: burst
+  base_rate: 1.0
+  burst_size: 40
+  burst_interval_s: 15.0
+  size_kb_range: [10, 512]
+  complexity_range: [1, 6]
+  deadline_ms_range: [100, 800]
+network:
+  edge1_latency_ms: 5.0
+  edge1_bw_mbps: 200.0
+  edge2_latency_ms: 8.0
+  edge2_bw_mbps: 150.0
+  cloud_latency_ms: 80.0
+  cloud_bw_mbps: 1000.0
+nodes:
+  edge1_cores: 4
+  edge1_speed_ghz: 2.0
+  edge2_cores: 4
+  edge2_speed_ghz: 2.2
+  cloud_cores: 16
+  cloud_speed_ghz: 3.5
+simulation:
+  duration_s: 120
+  sim_speed: 0
